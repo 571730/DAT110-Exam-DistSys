@@ -189,4 +189,27 @@ In the centralized algorithm, one process is set to be the coordinator. All requ
 All the processes are organized in a logical ring. There is one token, and this token is passed along the ring. To enter the critical section, you will need to have the token. If you get the token and do not need to use the critical section, you just pass along the token to the next process.
 
 5. Explain briefly how bully election algorithm works
+n the bully algorithm, the process with the highest id is the coordinator. When some process notices that the current coordinator does not respond to requests, it will issue an ELECTION message to all processess with a higher id. This is repeated until no process responds to the ELECTION message. This must then be the highest process, and it will become the new coordinator.
+
+## 6 Fault-Tolerance
+1. Explain how process resilience can be achieved in a distributed system
+This can be done by having several identical processes in a group. This way, if one process fails, another can will do its job.
+
+2. Differentiate between flat process groups and hierarchial process groups, and discuss their benefits and drawbacks
+In a **flat group**, all processess are treated equally. This means that there is no single point of failure. The main problem is that decision making is complicated. This will also induce delays.
+In a **hierarchial group**, there will be a coordinator. This means that decisions are fast and easy to make, but it will also have a single point of failure.
+
+3. Explain feedback implosion and how to use nonhierarchial feedback control to mitigate it
+A process will send out a NACK regarding some missing message. This NACK is sent out to all group members, and if some process also wants to send out a NACK regarding the same message, this NACK will not be sent. This way the sender only receives one NACK.
+
+4. Discuss briefly the five classes of failures that can occur in RPC systems
+- The client cannot locate the server
+- The request message from the client to the server is lost
+- The reply message from the server to the client is lost
+- The server crashes after receiving a request
+- The client crashes after sending a request
+
+## 7 Security
+Discuss the cryptography schemes that can be used to provide confidentiality, integrity, authentication, and non-repudiation
+
 
