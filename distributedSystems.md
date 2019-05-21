@@ -188,3 +188,5 @@ In the centralized algorithm, one process is set to be the coordinator. All requ
 4. Discuss how token-ring algorithm works in mutual exclusion algorithm
 All the processes are organized in a logical ring. There is one token, and this token is passed along the ring. To enter the critical section, you will need to have the token. If you get the token and do not need to use the critical section, you just pass along the token to the next process.
 
+5. Explain briefly how bully election algorithm works
+
