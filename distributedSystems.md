@@ -264,3 +264,37 @@ The server will respond with a public key. The user will use this public key to 
 The server will decrypt this message using its private key, and store the key sent by the user. Both parties now have a identical key that can be used for symmetrical encryption.
 
 In TLS the server will also respond to the TLS-hello request with a TLS-certificate. This certificate will confirm the identity of the server. These certificates are distributed and verified by third-parties.
+
+## 8 - Cloud Computing
+Explain the following cloud service models:
+- Infrastructure as a service
+- Platform as a service
+- Software as a service
+
+### Infrastructure as a service
+This is where a vendor provides computing resources to the consumer. Examples of such services includes:
+- Amazon Elastic Compute (EC2)
+- Google Compute Engine
+- Azure VM
+
+This kind of service can provide the compute capabilities when you need them without any upfront investment. It can also quickly scale to your needs.
+
+### Platform as a service
+This is a cloud service that provides a platform that the consumer can use to build and deploy software.
+
+It is a model in whick a third-party provider hosts application development platforms and tools on its own infrastructure and makes them availible to customers over the internet.
+
+Examples include:
+- AWS Elastic Beanstalk
+- Google App engine
+- Heroku
+
+### Software as a service
+A software distribution model in which a third-party provider hosts applications and makes them availible to customers over the internet.
+
+Examples:
+- Google Docs
+- Netsuite
+
+
+
