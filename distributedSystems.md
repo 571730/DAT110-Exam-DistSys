@@ -212,4 +212,55 @@ A process will send out a NACK regarding some missing message. This NACK is sent
 ## 7 Security
 Discuss the cryptography schemes that can be used to provide confidentiality, integrity, authentication, and non-repudiation
 
+### Symmetric Key Cryptography
+This is where all sides share the same key. Meaning that if Bill and Bob want to send encrypted message to one another, they first agree on a key. They both use this key to encrypt and decrypt all messages that they send.
 
+Some popular symmetric key encryption systems include:
+- DES - Data Encryption Standard
+- Blowfish
+- RC5
+- AES - Advanced Encryption Standard
+
+There are som issues with symmetric key cryptography. The main one is perhaps that the two parties must agree on the secret key in advance.
+
+It is also not very scalable since user need many pairs of unique keys.
+
+How does one deliver a key to the other party securely?
+It does not provide non-repudiation.
+
+### Public Key Cryptography
+In this approach, the sender and reciever do not share a secret key. They do however have public keys that are availible to anyone. This key can be used to encrypt a message and send it to its user. The user can then use its private key to decrypt the message.
+
+This solves the issue of exchaning keys, as the public key is all that is need to encrypt a message, but the same key can not be used to decrypt the message.
+
+One can however derive a private key using the public key, but this is made very computationally difficult. Some scheemes used to calculate private-public key pairs include:
+- Integer-Factorization Schemes, difficult to factor large integers (RSA)
+- Discrete Logarithm Schemes
+- Elliptic Curve Schemes
+
+### Hash Functions
+A hash function will reduce a message of arbitrary length into a fixed-length output.
+
+Hash functions are not means of encrytion, as they are one-way. They also do not have any keys.
+
+Some popular hash functions include:
+- MD4 (128 bits)
+- MD5 (128 bits)
+- MD6 (up to 512 bits)
+- SHA-1 (160 bits)
+- SHA-2 (SHA-256 and SHA-512 b)
+- SHA-3
+- RIPEMD-160
+
+A hash function should ideally be fast. It must be collision resistant, meaning two different messages should not produce equal hashes. It should be one-way, meaning one cannot derive the original message from the hash. You should also not be able to modify a message without modifying the hash.
+
+### SSL
+Secure sockets layer provides transport layer security to any TCP-based application using SSL services.
+
+TLS(Transport Layer Security) is an updated and more secure version of SSL.
+
+In this protocol, when a user wants to make a secure connection to a server. It will send a TLS-hello request, meaning that the user is asking the server to establish a secure connection. 
+The server will respond with a public key. The user will use this public key to encrypt a message containing a key that can be used for symmetric encryption.
+The server will decrypt this message using its private key, and store the key sent by the user. Both parties now have a identical key that can be used for symmetrical encryption.
+
+In TLS the server will also respond to the TLS-hello request with a TLS-certificate. This certificate will confirm the identity of the server. These certificates are distributed and verified by third-parties.
